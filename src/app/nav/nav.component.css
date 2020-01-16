@@ -1,0 +1,50 @@
+.navbar{
+    background-color: white;
+}
+
+mat-form-field{
+    width: 60px;
+    font-size: 0.9em;
+  
+    
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+::ng-deep .mat-form-field-type-mat-select .mat-form-field-label, .mat-select-value, .mat-select {
+    color: black;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  
+.form-control{
+  margin: 5px;
+  border-radius: 40px;
+  font-size: 1em;
+  background-color: transparent;
+  color: black;
+  width: 400px;
+}
+.form-inline{
+
+}
+.btn-search{
+  border-radius: 50%;
+  font-size: 2.2em;
+  color: black;
+  padding: 5px;
+  background-color: transparent;
+  border: transparent;
+}
+
+.search-bar{
+  background-color: white;
+  padding: 5px;
+  color: black;
+  height: auto;
+}
