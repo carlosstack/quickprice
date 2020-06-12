@@ -13,6 +13,7 @@ import {MatSelectModule, MatInputModule} from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import { ResultsComponent } from './results/results.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -30,7 +31,8 @@ import { ResultsComponent } from './results/results.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

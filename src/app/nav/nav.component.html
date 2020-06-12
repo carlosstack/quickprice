@@ -1,35 +1,35 @@
 <nav class="navbar navbar-expand navbar-ligth">
     <div class="p-1 navbar-brand"> <a href="" class="text-dark h4">
 
-        <span class="text-dark">Whats</span>
-        <span class="text-warning">Price</span>
-      
+            <span class="text-dark">Whats</span>
+            <span class="text-warning">Price</span>
 
-    </a></div>
+
+        </a></div>
     <div class="search-bar mx-auto">
 
 
         <div class="d-flex flex-row ">
-            <form class="form-inline">
-                <div class="form-group ">
 
-                    <div class="d-flex flex-row">
-                        <input type="text" class="form-control text-dark" name="search" id="search"
-                            placeholder="ex. Iphone 11, Samsung A50" (keyup)="keyword = $event.target.value">
 
-                        <a href="/of/{{keyword}}" type="submit" class="btn btn-search">
-                            <div class="d-flex">
-                                <li class="fa fa-search p-1"></li>
-                            </div>
-                        </a>
-                    </div>
+
+
+            <form class="form" (submit)='search()'>
+                <div class="d-flex flex-row ">
+                    <input class="form-control text-dark" [(ngModel)]="keyword" type="search" name="search" id="search"
+                        placeholder="ex. Iphone 11, Samsung A50">
+
+                    <button type="submit" class="btn-search">
+                        <div class="d-flex">
+                            <li class="fa fa-search p-1"></li>
+                        </div>
+                    </button>
                 </div>
-
             </form>
         </div>
     </div>
-    <div class="p-1 ml-auto">
-        <small>
+    <div class="p-1 ml-auto" >
+        <small hidden>
             <mat-form-field>
                 <mat-label>USD </mat-label>
                 <mat-select disabled>
@@ -41,7 +41,7 @@
             </mat-form-field>
         </small>
     </div>
-    <div class="p-1">
+    <div class="p-1" hidden>
         <small>
             <mat-form-field>
                 <mat-label>EN</mat-label>

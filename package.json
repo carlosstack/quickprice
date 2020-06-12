@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "angular-fontawesome": "^1.0.0",
+    "ebay-oauth-nodejs-client": "^1.1.0",
     "font-awesome": "^4.7.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",

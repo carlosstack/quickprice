@@ -26,7 +26,6 @@ export class MainComponent implements OnInit {
 
   constructor(private meli: MeliService, private bbuy: BestbuyService, private ebay:EbayService, private router: Router) {
     this.bbuy.getTrendingTopic().subscribe((data)=>{
-      console.log(data)
       this.trendingTopicsProducts = data;
     });
   }
@@ -35,4 +34,5 @@ export class MainComponent implements OnInit {
     
   }
 
+ 
 }

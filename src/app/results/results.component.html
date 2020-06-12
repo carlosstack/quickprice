@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div class="container">
+<div class="container" *ngIf="bestbuyProducts.total>0;else notFound">
     <div class="row p-1">
         <div class="col-md-12">
             <h5 class="p-1 text-secondary filters"></h5>
@@ -83,3 +83,7 @@
     </div>
 
 </div>
+
+<ng-template #notFound>
+    <h4 class="p-4 text-center text-secondary">Not found, Please try again!</h4>
+</ng-template>

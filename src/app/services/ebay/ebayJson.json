@@ -1,0 +1,16 @@
+{
+    "SANDBOX": {
+        "clientId": "---Client Id---",
+        "clientSecret": "--- client secret---",
+        "devid": "-- dev id ---",
+        "redirectUri": "-- redirect uri ---",
+        "baseUrl": "api.sandbox.ebay.com" 
+    },
+    "PRODUCTION": {
+        "clientId": "CarlosEd-WhatsPir-PRD-7a5837354-59290422",
+        "clientSecret": "PRD-a5837354dd65-1c0b-4ed6-8408-c7f9",
+        "devid": "61150e4b-e109-4a27-94ca-87f4821488bc",
+        "redirectUri": "#",
+        "baseUrl": "api.ebay.com" 
+    }
+}
