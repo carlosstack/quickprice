@@ -1,4 +1,13 @@
-/* STRUCTURE */
+
+.container-fluid{
+    background-color: rgb(0, 6, 88);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+}
 
 .wrapper {
     display: flex;
@@ -6,23 +15,12 @@
     flex-direction: column; 
     justify-content: center;
     width: 100%;
-    min-height: 100%;
+    min-height: calc(100% - 180px);
   }
   
   /* ANIMATIONS */
-  
-  
-  
 
-.form-control{
-    margin: 5px;
-    border-radius: 40px;
-    font-size: 1.4em;
-    font-weight: 500;
-    background-color: transparent;
-    color: black;
-    width: 400px;
-}
+
 .form-inline{
     margin-top: 12px;
 }
@@ -35,19 +33,10 @@
     border: transparent;
 }
 
-.search-bar-title {
+.title {
     font-size: 5.5em;
 }
-.search-bar{
-    position: fixed;
-    background-color: white;
-    color: black;
-    width:100%;
-    height: 100%;
-    margin:0;
-    display: flex;
-    flex-direction: column;
-}
+
 
 .media-result{
     background:transparent;
@@ -64,65 +53,84 @@
     border:0;
 }
 
-.media-body-result {border:1px solid #bcbcbc; border-left:0; height:300px;}
-.media-result  .price{float:left; width:100%; font-size:30px;font-weight:600; color:#4765AB;}
-.media-result  .price small{display:block; font-size:17px; color:#232323;}
-.media-result  .stats{float:left; width:100%; margin-top:10px;}
-.media-result  .stats span{float:left; margin-right:10px; font-size:15px;}
-.media-result  .stats span i{margin-right:7px; color:#4765AB;}
-.media-result  .bottom{float:left; width:100%;font-size:14px; margin-top:5px; color:#888;}
 
 
-
-.media {
-    background:#fff;
-     position:relative; 
-     margin-bottom:15px;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+.rw-wrapper{
+	width: 100%;
+    position: relative;
 }
 
-.media .img{
-    border:1px solid #bcbcbc;
-    width: 180px; 
-    height:180px;
-
-
-}
-.media .img img{
-    max-width: 175px;
-    height:175px;
-    
+.rw-sentence{
+	margin-left: -40%;
+	text-align: left;
 }
 
-.media-body{border:1px solid #bcbcbc; border-left:0; height:180px;}
-.media-body-description{border:1px solid #bcbcbc; border-left:0; height:300px;}
-.media .price{float:left; width:100%; font-size:30px;font-weight:600; color:#4765AB;}
-.media .price small{display:block; font-size:17px; color:#232323;}
-.media .stats{float:left; width:100%; margin-top:10px;}
-.media .stats span{float:left; margin-right:10px; font-size:15px;}
-.media .stats span i{margin-right:7px; color:#4765AB;}
-.media .address{float:left; width:100%;font-size:14px; margin-top:5px; color:#888;}
-.media .fav-box{position:absolute; right:10px; font-size:20px; top:4px; color:#E74C3C;}
-
-
-.interrogative-symbol{
-    font-size: 1.3em;
+.rw-sentence span{
+	color: #fff;
+	white-space: nowrap;
+	font-size: 50px;
+	font-weight: normal;
 }
+
+.rw-words{
+	display: inline;
+	text-indent: 10px;
+}
+
+.rw-words span{
+	position: absolute;
+	opacity: 0;
+	overflow: hidden;
+	width: 100%;
+	color: #4102d4;
+}
+
+.rw-words-1 span{
+	animation: rotateWordsFirst 12s linear infinite 0s;
+}
+.rw-words-2 span{
+	animation: rotateWordsSecond 12s linear infinite 0s;
+}
+.rw-words span:nth-child(2) { 
+	animation-delay: 2s; 
+	color: #4102d4;
+}
+.rw-words span:nth-child(3) { 
+	animation-delay: 4s; 
+	color: #4102d4;	
+}
+.rw-words span:nth-child(4) { 
+	animation-delay: 6s; 
+	color: #4102d4;
+}
+.rw-words span:nth-child(5) { 
+	animation-delay: 8s; 
+	color: #4102d4;
+}
+.rw-words span:nth-child(6) {  
+	animation-delay: 10s; 
+	color: #4102d4;
+}
+
+@keyframes rotateWordsFirst {
+  0% { opacity: 1; animation-timing-function: ease-in; height: 0px; }
+  8% { opacity: 1; height: 60px; }
+  19% { opacity: 1; height: 60px; }
+25% { opacity: 0; height: 60px; }
+  100% { opacity: 0; }
+}
+
+@keyframes rotateWordsSecond {
+  0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
+  10% { opacity: 0.3; width: 0px; }
+20% { opacity: 1; width: 100%; }
+  27% { opacity: 0; width: 100%; }
+  100% { opacity: 0; }
+}
+
 
 @media only screen and (max-width:800px){
  
-    .btn-search{
-        font-size: 2em;
-        margin: 0px;
-
-    }
-    .hidden-in-mobile{
-        display: none;
-    }
-    .title{
-        font-size: 1.1em;
-    }
 
 
 }

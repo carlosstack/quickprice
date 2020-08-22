@@ -6,7 +6,7 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'of/:keyword', component: ResultsComponent },
+  { path: ':keyword', component: ResultsComponent },
   { path: '**', redirectTo: '' }
 
 

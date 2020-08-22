@@ -24,12 +24,16 @@ export class ResultsComponent implements OnInit {
   private trendingTopicsProducts;
 
   constructor(private meli: MeliService, private bbuy: BestbuyService, private ebay:EbayService, private router: Router, private route:ActivatedRoute) {
+  }
   
-  }
   ngOnInit() {
-    this.keyword = this.route.snapshot.params['keyword'];
-    this.getBestBuyProducts();
-  }
+    this.route.params.subscribe(params=>{
+      this.bestbuyProducts = null
+      this.keyword = params["keyword"]
+      this.getBestBuyProducts();
+    }
+  );
+}
 
   getBestBuyProducts() {
     this.bbuy.getProductsByKeyword(this.keyword.toString()).subscribe(

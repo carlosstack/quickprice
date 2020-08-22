@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 
 
 
@@ -10,14 +10,34 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   private keyword;
+  private query:String;
 
-  constructor(private router:Router) { }
+  constructor(private route: ActivatedRoute,private router:Router) {  
+  }
 
   ngOnInit() {
-  }
-  search(){
-    this.router.navigateByUrl('of/'+this.keyword.trimEnd(' ').toString()) .then(() => {
-      window.location.reload();
+
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        let r = this.route;
+        while (r.firstChild) {
+          r = r.firstChild;
+        }
+        r.params.subscribe((params) => {
+          this.query = params["keyword"]
+        });
+      }
     });
+   
+  }
+
+  search(){
+    this.router.navigateByUrl(this.keyword.trimEnd(' ').toString());
+  
+  }
+
+  titleCaseWord(word: string) {
+    if (!word) return word;
+    return word[0].toUpperCase() + word.substr(1).toLowerCase();
   }
 }

@@ -1,89 +1,95 @@
-<app-nav></app-nav>
-<div class="container" *ngIf="bestbuyProducts.total>0;else notFound">
-    <div class="row p-1">
-        <div class="col-md-12">
-            <h5 class="p-1 text-secondary filters"></h5>
-        </div>
 
-        <div class="col-md-12" *ngIf="products">
 
-            <div class="media-result  p-2 row">
-                <div class="col-md-6 text-center text-dark bg-white p-3">
+<div *ngIf="bestbuyProducts;else loading">
+    <div class="container" *ngIf="bestbuyProducts.total>0;else notFound">
+        <div class="row p-1">
 
-                    <img class="p-1" src="{{products[0].image}}" alt="Generic placeholder image">
-                    <div class="title h5"><a href="{{products[0].url}}">{{products[0].name}}</a></div>
-                    <div class="">Price: {{products[0].salePrice}}$</div>
+            <div class="col-md-12" *ngIf="products">
 
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-md-12 bg-primary ">
-                            <div class="row">
-                                <div class="col-md-6 d-flex  bg-info p-4 text-center flex-column">
-                                    <div class="text-white h2  p-1">
-                                        Lowest price:<br> {{minPrice}}$
+                <div class="media-result  p-2 row">
+                    <div class="col-md-6 text-center text-dark bg-white p-3">
+                        <h5><i class="fa fa-star"></i> Best choice </h5>
+                        <img class="p-1" src="{{products[0].image}}" alt="Generic placeholder image">
+                        <div class="title h5"><a href="{{products[0].url}}">{{products[0].name}}</a></div>
+                        <div class="">Price: {{products[0].salePrice}}$</div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12 bg-primary ">
+                                <div class="row">
+                                    <div class="col-md-6 d-flex  bg-info p-4 text-center flex-column">
+                                        <div class="text-white h3  p-1">
+                                            Lowest price:<br> {{minPrice}}$
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6 d-flex bg-primary p-4 text-center flex-column">
-                                    <div class="text-white h2 p-1">
-                                        Upper price: <br>{{maxPrice}}$
+                                    <div class="col-md-6 d-flex bg-primary p-4 text-center flex-column">
+                                        <div class="text-white h3 p-1">
+                                            Highest price: <br>{{maxPrice}}$
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12 p-4 bg-success">
-                                    <div class=" h5 text-center text-white ">Customer review average:</div>
-                                    <div class=" text-center h1 text-white ">
-                                        <li class="fa fa-star p-2"></li>{{products[0].customerReviewAverage}}
+                                    <div class="col-md-12 p-4 bg-success">
+                                        <div class=" h5 text-center text-white ">Customer review average:</div>
+                                        <div class=" text-center h1 text-white ">
+                                            <li class="fa fa-star p-2"></li>{{products[0].customerReviewAverage}}
+                                        </div>
+                                        <div class=" text-center h4 text-white ">({{products[0].customerReviewCount}})
+                                        </div>
                                     </div>
-                                    <div class=" text-center h4 text-white ">({{products[0].customerReviewCount}})</div>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 p-4 bg-warning hidden-in-mobile">
+                        <h6>Features:</h6>
+                        <div class="p-1 ">
+                            <ul>
+                                <li *ngFor="let item of products[0].features"><small>{{item.feature}}</small></li>
+                            </ul>
+
                         </div>
 
                     </div>
                 </div>
 
-                <div class="col-md-12 p-4 bg-warning hidden-in-mobile">
-                    <h6>Features:</h6>
-                    <div class="p-1 ">
-                        <ul><li *ngFor="let item of products[0].features"><small >{{item.feature}}</small></li></ul>
-                        
-                    </div>
-
-                </div>
             </div>
 
-        </div>
+            <div class="col-md-12">
+                <h5 *ngIf="products" class="p-2">More results:</h5>
+            </div>
+            <div class="col-md-12 listing-block" *ngIf="products">
+                <div *ngFor="let product of products">
 
-        <div class="col-md-12">
-            <h6 *ngIf="products" class="p-2">Recommendations for you:</h6>
-        </div>
-        <div class="col-md-12 listing-block" *ngIf="products">
-            <div *ngFor="let product of products">
-
-                <div class="media">
-
-                    <div class="img d-flex  justify-content-center">
-                        <img class="img-fluid" src="{{product.image}}" alt="Generic placeholder image">
-                    </div>
-                    <div class="media-body pl-3 p-2">
-                        <div class="title h4"><a href="{{product.url}}">{{product.name}}</a></div>
-                        <div class="price">
-                            {{product.salePrice}}$<small>{{product.condition}}</small>
+                    <div class="media">
+                        <div class="img d-flex  justify-content-center">
+                            <img class="img-fluid" src="{{product.image}}" alt="{{product.name}}">
                         </div>
-                        <div class="hidden-in-mobile">{{product.shortDescription}}</div>
-                        <div class="address">from: BestBuy.com</div>
+                        <div class="media-body pl-3 p-2">
+                            <div class="title h5"><a href="{{product.url}}">{{product.name}}</a></div>
+                            <div class="price">
+                                {{product.salePrice}}$<small>{{product.condition}}</small>
+                            </div>
+                            <div class="hidden-in-mobile"><small>{{product.shortDescription}}</small></div>
+                            <div class="address">from: BestBuy.com</div>
+                        </div>
                     </div>
+
                 </div>
 
+
+
             </div>
-
-
-
         </div>
+
     </div>
-
 </div>
 
 <ng-template #notFound>
     <h4 class="p-4 text-center text-secondary">Not found, Please try again!</h4>
+</ng-template>
+
+<ng-template #loading>
+    <h4 class="p-4 text-center text-secondary">Loading...</h4>
 </ng-template>
